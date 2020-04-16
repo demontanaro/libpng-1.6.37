@@ -1,0 +1,5 @@
+libpng (1.6.37-1) unstable; urgency=medium
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- root <demontanaro@gmail.com>  Thu, 16 Apr 2020 15:17:26 -0500

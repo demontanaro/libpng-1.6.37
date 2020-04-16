@@ -1,0 +1,495 @@
+ dpkg-buildpackage -us -uc -ui -nc
+dpkg-buildpackage: info: source package libpng
+dpkg-buildpackage: info: source version 1.6.37-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by root <demontanaro@gmail.com>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ debian/rules build
+dh build
+   dh_update_autotools_config
+   dh_autoreconf
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'scripts'.
+libtoolize: copying file 'scripts/libtool.m4'
+libtoolize: copying file 'scripts/ltoptions.m4'
+libtoolize: copying file 'scripts/ltsugar.m4'
+libtoolize: copying file 'scripts/ltversion.m4'
+libtoolize: copying file 'scripts/lt~obsolete.m4'
+configure.ac:61: installing './compile'
+configure.ac:37: installing './missing'
+Makefile.am: installing './depcomp'
+   dh_auto_configure
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/x86_64-linux-gnu --libexecdir=\${prefix}/lib/x86_64-linux-gnu --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of gcc... none
+checking dependency style of gcc... none
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking how to print strings... printf
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking how to run the C preprocessor... gcc -E
+checking for gawk... (cached) mawk
+checking whether ln -s works... yes
+checking whether make sets $(MAKE)... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking that AWK works... ok
+checking if we need to force back C standard to C89... no
+checking for ANSI C header files... (cached) yes
+checking for an ANSI C-conforming const... yes
+checking for size_t... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for C/C++ restrict keyword... __restrict
+checking for working strtod... yes
+checking for pow... no
+checking for pow in -lm... yes
+checking for clock_gettime... yes
+checking for zlibVersion in -lz... yes
+checking for feenableexcept in -lm... yes
+checking for feenableexcept... yes
+checking if using Solaris linker... no
+checking if libraries can be versioned... yes
+checking for symbol prefix... 
+configure: pkgconfig directory is ${libdir}/pkgconfig
+configure: Extra options for compiler: 
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libpng.pc
+config.status: creating libpng-config
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+   dh_auto_build
+	make -j4
+make[1]: Entering directory '/root/instalables/libpng16/libpng-1.6.37'
+rm -f pnglibconf.c pnglibconf.tf[45]
+mawk -f ./scripts/options.awk out=pnglibconf.tf4 version=search\
+    ./pngconf.h ./scripts/pnglibconf.dfa\
+    ./pngusr.dfa  1>&2
+mawk -f ./scripts/options.awk out=pnglibconf.tf5 pnglibconf.tf4 1>&2
+rm pnglibconf.tf4
+mv pnglibconf.tf5 pnglibconf.c
+rm -f pnglibconf.out pnglibconf.tf[12]
+test -d scripts || mkdir scripts || test -d scripts
+gcc -E -DHAVE_CONFIG_H -I. \
+    -Wdate-time -D_FORTIFY_SOURCE=2 -DPNGLIB_LIBNAME='PNG16_0' -DPNGLIB_VERSION='1.6.37' -DSYMBOL_PREFIX='' -DPNG_NO_USE_READ_MACROS -DPNG_BUILDING_SYMBOL_TABLE  pnglibconf.c > pnglibconf.tf1
+mawk -f "./scripts/dfn.awk" out="pnglibconf.tf2" pnglibconf.tf1 1>&2
+rm -f pnglibconf.tf1
+mv pnglibconf.tf2 pnglibconf.out
+rm -f pnglibconf.h
+cp pnglibconf.out pnglibconf.h
+make  all-am
+make[2]: Entering directory '/root/instalables/libpng16/libpng-1.6.37'
+:>pngprefix.h
+rm -f scripts/vers.out scripts/vers.tf[12]
+gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o contrib/tools/png-fix-itxt.o contrib/tools/png-fix-itxt.c
+cp libpng-config libpng16-config
+test -d scripts || mkdir scripts || test -d scripts
+cp libpng.pc libpng16.pc
+gcc -E -DHAVE_CONFIG_H -I. \
+    -Wdate-time -D_FORTIFY_SOURCE=2 -DPNGLIB_LIBNAME='PNG16_0' -DPNGLIB_VERSION='1.6.37' -DSYMBOL_PREFIX='' -DPNG_NO_USE_READ_MACROS -DPNG_BUILDING_SYMBOL_TABLE  scripts/vers.c > scripts/vers.tf1
+gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngtest.o pngtest.c
+mawk -f "./scripts/dfn.awk" out="scripts/vers.tf2" scripts/vers.tf1 1>&2
+gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o contrib/tools/pngcp.o contrib/tools/pngcp.c
+rm -f scripts/vers.tf1
+mv scripts/vers.tf2 scripts/vers.out
+gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o contrib/libtests/timepng.o contrib/libtests/timepng.c
+gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o contrib/tools/pngfix.o contrib/tools/pngfix.c
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o png.lo png.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c png.c  -fPIC -DPIC -o .libs/png.o
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngerror.lo pngerror.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngerror.c  -fPIC -DPIC -o .libs/pngerror.o
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngget.lo pngget.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngget.c  -fPIC -DPIC -o .libs/pngget.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngerror.c -o pngerror.o >/dev/null 2>&1
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngmem.lo pngmem.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngmem.c  -fPIC -DPIC -o .libs/pngmem.o
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngpread.lo pngpread.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngget.c -o pngget.o >/dev/null 2>&1
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngpread.c  -fPIC -DPIC -o .libs/pngpread.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngmem.c -o pngmem.o >/dev/null 2>&1
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngread.lo pngread.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngread.c  -fPIC -DPIC -o .libs/pngread.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c png.c -o png.o >/dev/null 2>&1
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngpread.c -o pngpread.o >/dev/null 2>&1
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngrio.lo pngrio.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngrio.c  -fPIC -DPIC -o .libs/pngrio.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngrio.c -o pngrio.o >/dev/null 2>&1
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngrtran.lo pngrtran.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngrtran.c  -fPIC -DPIC -o .libs/pngrtran.o
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngrutil.lo pngrutil.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngrutil.c  -fPIC -DPIC -o .libs/pngrutil.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngread.c -o pngread.o >/dev/null 2>&1
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngset.lo pngset.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngset.c  -fPIC -DPIC -o .libs/pngset.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngset.c -o pngset.o >/dev/null 2>&1
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngrutil.c -o pngrutil.o >/dev/null 2>&1
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngtrans.lo pngtrans.c
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngwio.lo pngwio.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngtrans.c  -fPIC -DPIC -o .libs/pngtrans.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngwio.c  -fPIC -DPIC -o .libs/pngwio.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngrtran.c -o pngrtran.o >/dev/null 2>&1
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngwio.c -o pngwio.o >/dev/null 2>&1
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngtrans.c -o pngtrans.o >/dev/null 2>&1
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngwrite.lo pngwrite.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngwrite.c  -fPIC -DPIC -o .libs/pngwrite.o
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngwtran.lo pngwtran.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngwtran.c  -fPIC -DPIC -o .libs/pngwtran.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngwtran.c -o pngwtran.o >/dev/null 2>&1
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pngwutil.lo pngwutil.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngwutil.c  -fPIC -DPIC -o .libs/pngwutil.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngwrite.c -o pngwrite.o >/dev/null 2>&1
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o mips/mips_init.lo mips/mips_init.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c mips/mips_init.c  -fPIC -DPIC -o mips/.libs/mips_init.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c mips/mips_init.c -o mips/mips_init.o >/dev/null 2>&1
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o mips/filter_msa_intrinsics.lo mips/filter_msa_intrinsics.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c mips/filter_msa_intrinsics.c  -fPIC -DPIC -o mips/.libs/filter_msa_intrinsics.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c mips/filter_msa_intrinsics.c -o mips/filter_msa_intrinsics.o >/dev/null 2>&1
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o intel/intel_init.lo intel/intel_init.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c intel/intel_init.c  -fPIC -DPIC -o intel/.libs/intel_init.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c intel/intel_init.c -o intel/intel_init.o >/dev/null 2>&1
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o intel/filter_sse2_intrinsics.lo intel/filter_sse2_intrinsics.c
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o powerpc/powerpc_init.lo powerpc/powerpc_init.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c intel/filter_sse2_intrinsics.c  -fPIC -DPIC -o intel/.libs/filter_sse2_intrinsics.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c powerpc/powerpc_init.c  -fPIC -DPIC -o powerpc/.libs/powerpc_init.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c intel/filter_sse2_intrinsics.c -o intel/filter_sse2_intrinsics.o >/dev/null 2>&1
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c pngwutil.c -o pngwutil.o >/dev/null 2>&1
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c powerpc/powerpc_init.c -o powerpc/powerpc_init.o >/dev/null 2>&1
+/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o powerpc/filter_vsx_intrinsics.lo powerpc/filter_vsx_intrinsics.c
+rm -f libpng.vers
+cp scripts/vers.out libpng.vers
+/bin/bash ./libtool  --tag=CC   --mode=link gcc  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o png-fix-itxt contrib/tools/png-fix-itxt.o  -lm -lz -lm 
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c powerpc/filter_vsx_intrinsics.c  -fPIC -DPIC -o powerpc/.libs/filter_vsx_intrinsics.o
+gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o contrib/libtests/pngunknown.o contrib/libtests/pngunknown.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c powerpc/filter_vsx_intrinsics.c -o powerpc/filter_vsx_intrinsics.o >/dev/null 2>&1
+libtool: link: gcc -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z -Wl,relro -o png-fix-itxt contrib/tools/png-fix-itxt.o  -lz -lm
+gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o contrib/libtests/pngstest.o contrib/libtests/pngstest.c
+gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o contrib/libtests/pngvalid.o contrib/libtests/pngvalid.c
+In file included from /usr/include/signal.h:25,
+                 from contrib/libtests/pngvalid.c:26:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -c -o contrib/libtests/pngimage.o contrib/libtests/pngimage.c
+contrib/libtests/pngstest.c: In function ‘compare_two_images’:
+contrib/libtests/pngstest.c:2717:40: warning: ‘%lu’ directive writing between 1 and 10 bytes into a region of size between 0 and 7 [-Wformat-overflow=]
+                   sprintf(pindex, "%lu[%lu]", (unsigned long)y,
+                                        ^~~
+contrib/libtests/pngstest.c:2717:35: note: directive argument in the range [0, 4294967295]
+                   sprintf(pindex, "%lu[%lu]", (unsigned long)y,
+                                   ^~~~~~~~~~
+In file included from /usr/include/stdio.h:873,
+                 from contrib/libtests/pngstest.c:19:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:36:10: note: ‘__builtin___sprintf_chk’ output between 5 and 33 bytes into a destination of size 9
+   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       __bos (__s), __fmt, __va_arg_pack ());
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/bin/bash ./libtool  --tag=CC   --mode=link gcc  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -no-undefined -export-dynamic -version-number 16:37:0  -Wl,--version-script=libpng.vers  -Wl,-z,relro -o libpng16.la -rpath /usr/lib/x86_64-linux-gnu png.lo pngerror.lo pngget.lo pngmem.lo pngpread.lo pngread.lo pngrio.lo pngrtran.lo pngrutil.lo pngset.lo pngtrans.lo pngwio.lo pngwrite.lo pngwtran.lo pngwutil.lo  mips/mips_init.lo mips/filter_msa_intrinsics.lo intel/intel_init.lo intel/filter_sse2_intrinsics.lo powerpc/powerpc_init.lo powerpc/filter_vsx_intrinsics.lo   -lm -lz -lm 
+contrib/libtests/pngstest.c: In function ‘write_one_file’:
+contrib/libtests/pngstest.c:3215:24: warning: ‘%d’ directive writing between 1 and 11 bytes into a region of size between 10 and 32 [-Wformat-overflow=]
+       sprintf(name, "%s%d.png", tmpf, ++counter);
+                        ^~
+contrib/libtests/pngstest.c:3215:21: note: directive argument in the range [-2147483647, 2147483647]
+       sprintf(name, "%s%d.png", tmpf, ++counter);
+                     ^~~~~~~~~~
+In file included from /usr/include/stdio.h:873,
+                 from contrib/libtests/pngstest.c:19:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:36:10: note: ‘__builtin___sprintf_chk’ output between 6 and 38 bytes into a destination of size 32
+   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       __bos (__s), __fmt, __va_arg_pack ());
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/png.o .libs/pngerror.o .libs/pngget.o .libs/pngmem.o .libs/pngpread.o .libs/pngread.o .libs/pngrio.o .libs/pngrtran.o .libs/pngrutil.o .libs/pngset.o .libs/pngtrans.o .libs/pngwio.o .libs/pngwrite.o .libs/pngwtran.o .libs/pngwutil.o mips/.libs/mips_init.o mips/.libs/filter_msa_intrinsics.o intel/.libs/intel_init.o intel/.libs/filter_sse2_intrinsics.o powerpc/.libs/powerpc_init.o powerpc/.libs/filter_vsx_intrinsics.o   -lz -lm  -g -O2 -fstack-protector-strong -Wl,--version-script=libpng.vers -Wl,-z -Wl,relro   -Wl,-soname -Wl,libpng16.so.16 -o .libs/libpng16.so.16.37.0
+libtool: link: (cd ".libs" && rm -f "libpng16.so.16" && ln -s "libpng16.so.16.37.0" "libpng16.so.16")
+libtool: link: (cd ".libs" && rm -f "libpng16.so" && ln -s "libpng16.so.16.37.0" "libpng16.so")
+libtool: link: ar cru .libs/libpng16.a  png.o pngerror.o pngget.o pngmem.o pngpread.o pngread.o pngrio.o pngrtran.o pngrutil.o pngset.o pngtrans.o pngwio.o pngwrite.o pngwtran.o pngwutil.o mips/mips_init.o mips/filter_msa_intrinsics.o intel/intel_init.o intel/filter_sse2_intrinsics.o powerpc/powerpc_init.o powerpc/filter_vsx_intrinsics.o
+ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: ranlib .libs/libpng16.a
+libtool: link: ( cd ".libs" && rm -f "libpng16.la" && ln -s "../libpng16.la" "libpng16.la" )
+/bin/bash ./libtool  --tag=CC   --mode=link gcc  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o pngtest pngtest.o libpng16.la -lm -lz -lm 
+/bin/bash ./libtool  --tag=CC   --mode=link gcc  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o pngfix contrib/tools/pngfix.o libpng16.la -lm -lz -lm 
+libtool: link: gcc -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z -Wl,relro -o .libs/pngtest pngtest.o  ./.libs/libpng16.so -lz -lm
+libtool: link: gcc -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z -Wl,relro -o .libs/pngfix contrib/tools/pngfix.o  ./.libs/libpng16.so -lz -lm
+/bin/bash ./libtool  --tag=CC   --mode=link gcc  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o pngunknown contrib/libtests/pngunknown.o libpng16.la -lm -lz -lm 
+/bin/bash ./libtool  --tag=CC   --mode=link gcc  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o pngstest contrib/libtests/pngstest.o libpng16.la -lm -lz -lm 
+/bin/bash ./libtool  --tag=CC   --mode=link gcc  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o pngimage contrib/libtests/pngimage.o libpng16.la -lm -lz -lm 
+libtool: link: gcc -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z -Wl,relro -o .libs/pngunknown contrib/libtests/pngunknown.o  ./.libs/libpng16.so -lz -lm
+libtool: link: gcc -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z -Wl,relro -o .libs/pngstest contrib/libtests/pngstest.o  ./.libs/libpng16.so -lz -lm
+libtool: link: gcc -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z -Wl,relro -o .libs/pngimage contrib/libtests/pngimage.o  ./.libs/libpng16.so -lz -lm
+/bin/bash ./libtool  --tag=CC   --mode=link gcc  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o pngcp contrib/tools/pngcp.o libpng16.la -lm -lz -lm 
+/bin/bash ./libtool  --tag=CC   --mode=link gcc  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o timepng contrib/libtests/timepng.o libpng16.la -lm -lz -lm 
+libtool: link: gcc -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z -Wl,relro -o .libs/pngcp contrib/tools/pngcp.o  ./.libs/libpng16.so -lz -lm
+libtool: link: gcc -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z -Wl,relro -o .libs/timepng contrib/libtests/timepng.o  ./.libs/libpng16.so -lz -lm
+/bin/bash ./libtool  --tag=CC   --mode=link gcc  -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o pngvalid contrib/libtests/pngvalid.o libpng16.la -lm -lz -lm 
+libtool: link: gcc -g -O2 -fdebug-prefix-map=/root/instalables/libpng16/libpng-1.6.37=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z -Wl,relro -o .libs/pngvalid contrib/libtests/pngvalid.o  ./.libs/libpng16.so -lz -lm
+make[2]: Leaving directory '/root/instalables/libpng16/libpng-1.6.37'
+make[1]: Leaving directory '/root/instalables/libpng16/libpng-1.6.37'
+   dh_auto_test
+	make -j4 test VERBOSE=1
+make[1]: Entering directory '/root/instalables/libpng16/libpng-1.6.37'
+make  pngtest pngunknown pngstest pngvalid pngimage pngcp timepng
+make[2]: Entering directory '/root/instalables/libpng16/libpng-1.6.37'
+make[2]: 'pngtest' is up to date.
+make[2]: 'pngunknown' is up to date.
+make[2]: 'pngstest' is up to date.
+make[2]: 'pngvalid' is up to date.
+make[2]: 'pngimage' is up to date.
+make[2]: 'pngcp' is up to date.
+make[2]: 'timepng' is up to date.
+make[2]: Leaving directory '/root/instalables/libpng16/libpng-1.6.37'
+make  check-TESTS
+make[2]: Entering directory '/root/instalables/libpng16/libpng-1.6.37'
+make[3]: Entering directory '/root/instalables/libpng16/libpng-1.6.37'
+PASS: tests/pngtest
+PASS: tests/pngtest-badpngs
+PASS: tests/pngvalid-gamma-16-to-8
+PASS: tests/pngvalid-gamma-background
+PASS: tests/pngvalid-gamma-expand16-background
+PASS: tests/pngvalid-gamma-expand16-transform
+PASS: tests/pngvalid-gamma-threshold
+PASS: tests/pngvalid-gamma-alpha-mode
+PASS: tests/pngvalid-gamma-expand16-alpha-mode
+PASS: tests/pngvalid-gamma-transform
+PASS: tests/pngvalid-progressive-interlace-standard
+PASS: tests/pngvalid-progressive-standard
+PASS: tests/pngvalid-gamma-sbit
+PASS: tests/pngvalid-standard
+PASS: tests/pngvalid-progressive-size
+PASS: tests/pngvalid-transform
+PASS: tests/pngstest-1.8-alpha
+PASS: tests/pngstest-1.8
+PASS: tests/pngstest-linear
+PASS: tests/pngstest-linear-alpha
+PASS: tests/pngstest-none-alpha
+PASS: tests/pngunknown-IDAT
+PASS: tests/pngunknown-discard
+PASS: tests/pngunknown-if-safe
+PASS: tests/pngunknown-sAPI
+PASS: tests/pngunknown-sTER
+PASS: tests/pngunknown-save
+PASS: tests/pngunknown-vpAg
+PASS: tests/pngimage-quick
+PASS: tests/pngstest-none
+PASS: tests/pngstest-sRGB
+PASS: tests/pngstest-sRGB-alpha
+PASS: tests/pngimage-full
+============================================================================
+Testsuite summary for libpng 1.6.37
+============================================================================
+# TOTAL: 33
+# PASS:  33
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[3]: Leaving directory '/root/instalables/libpng16/libpng-1.6.37'
+make[2]: Leaving directory '/root/instalables/libpng16/libpng-1.6.37'
+make[1]: Leaving directory '/root/instalables/libpng16/libpng-1.6.37'
+   create-stamp debian/debhelper-build-stamp
+ debian/rules binary
+dh binary
+   dh_testroot
+   dh_prep
+   dh_auto_install
+	make -j1 install DESTDIR=/root/instalables/libpng16/libpng-1.6.37/debian/libpng AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/root/instalables/libpng16/libpng-1.6.37'
+make  install-am
+make[2]: Entering directory '/root/instalables/libpng16/libpng-1.6.37'
+make[3]: Entering directory '/root/instalables/libpng16/libpng-1.6.37'
+ /bin/mkdir -p '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/lib/x86_64-linux-gnu'
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   libpng16.la '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/lib/x86_64-linux-gnu'
+libtool: install: /usr/bin/install -c .libs/libpng16.so.16.37.0 /root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/lib/x86_64-linux-gnu/libpng16.so.16.37.0
+libtool: install: (cd /root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/lib/x86_64-linux-gnu && { ln -s -f libpng16.so.16.37.0 libpng16.so.16 || { rm -f libpng16.so.16 && ln -s libpng16.so.16.37.0 libpng16.so.16; }; })
+libtool: install: (cd /root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/lib/x86_64-linux-gnu && { ln -s -f libpng16.so.16.37.0 libpng16.so || { rm -f libpng16.so && ln -s libpng16.so.16.37.0 libpng16.so; }; })
+libtool: install: /usr/bin/install -c .libs/libpng16.lai /root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/lib/x86_64-linux-gnu/libpng16.la
+libtool: install: /usr/bin/install -c .libs/libpng16.a /root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/lib/x86_64-linux-gnu/libpng16.a
+libtool: install: chmod 644 /root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/lib/x86_64-linux-gnu/libpng16.a
+libtool: install: ranlib /root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/lib/x86_64-linux-gnu/libpng16.a
+libtool: warning: remember to run 'libtool --finish /usr/lib/x86_64-linux-gnu'
+ /bin/mkdir -p '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/bin'
+  /bin/bash ./libtool   --mode=install /usr/bin/install -c pngfix png-fix-itxt '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/bin'
+libtool: warning: 'libpng16.la' has not been installed in '/usr/lib/x86_64-linux-gnu'
+libtool: install: /usr/bin/install -c .libs/pngfix /root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/bin/pngfix
+libtool: install: /usr/bin/install -c png-fix-itxt /root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/bin/png-fix-itxt
+ /bin/mkdir -p '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/bin'
+ /usr/bin/install -c libpng16-config '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/bin'
+make  install-exec-hook
+make[4]: Entering directory '/root/instalables/libpng16/libpng-1.6.37'
++ cd /root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/lib/x86_64-linux-gnu
++ for ext in a dll.a so so.16.37 la sl dylib
++ rm -f libpng.a
++ test -f libpng16.a
++ ln -s libpng16.a libpng.a
++ for ext in a dll.a so so.16.37 la sl dylib
++ rm -f libpng.dll.a
++ test -f libpng16.dll.a
++ for ext in a dll.a so so.16.37 la sl dylib
++ rm -f libpng.so
++ test -f libpng16.so
++ ln -s libpng16.so libpng.so
++ for ext in a dll.a so so.16.37 la sl dylib
++ rm -f libpng.so.16.37
++ test -f libpng16.so.16.37
++ for ext in a dll.a so so.16.37 la sl dylib
++ rm -f libpng.la
++ test -f libpng16.la
++ ln -s libpng16.la libpng.la
++ for ext in a dll.a so so.16.37 la sl dylib
++ rm -f libpng.sl
++ test -f libpng16.sl
++ for ext in a dll.a so so.16.37 la sl dylib
++ rm -f libpng.dylib
++ test -f libpng16.dylib
++ cd /root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/bin
++ rm -f libpng-config
++ ln -s libpng16-config libpng-config
+make[4]: Leaving directory '/root/instalables/libpng16/libpng-1.6.37'
+ /bin/mkdir -p '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/share/man/man3'
+ /usr/bin/install -c -m 644 libpng.3 libpngpf.3 '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/share/man/man3'
+ /bin/mkdir -p '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/share/man/man5'
+ /usr/bin/install -c -m 644 png.5 '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/share/man/man5'
+ /bin/mkdir -p '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/include/libpng16'
+ /usr/bin/install -c -m 644 pnglibconf.h '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/include/libpng16'
+ /bin/mkdir -p '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/lib/x86_64-linux-gnu/pkgconfig'
+ /usr/bin/install -c -m 644 libpng16.pc '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/lib/x86_64-linux-gnu/pkgconfig'
+ /bin/mkdir -p '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/include/libpng16'
+ /usr/bin/install -c -m 644 png.h pngconf.h '/root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/include/libpng16'
+make  install-data-hook
+make[4]: Entering directory '/root/instalables/libpng16/libpng-1.6.37'
++ cd /root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/include
++ for f in pnglibconf.h png.h pngconf.h
++ rm -f pnglibconf.h
++ ln -s libpng16/pnglibconf.h pnglibconf.h
++ for f in pnglibconf.h png.h pngconf.h
++ rm -f png.h
++ ln -s libpng16/png.h png.h
++ for f in pnglibconf.h png.h pngconf.h
++ rm -f pngconf.h
++ ln -s libpng16/pngconf.h pngconf.h
++ cd /root/instalables/libpng16/libpng-1.6.37/debian/libpng/usr/lib/x86_64-linux-gnu/pkgconfig
++ rm -f libpng.pc
++ ln -s libpng16.pc libpng.pc
+make[4]: Leaving directory '/root/instalables/libpng16/libpng-1.6.37'
+make[3]: Leaving directory '/root/instalables/libpng16/libpng-1.6.37'
+make[2]: Leaving directory '/root/instalables/libpng16/libpng-1.6.37'
+make[1]: Leaving directory '/root/instalables/libpng16/libpng-1.6.37'
+   dh_installdocs
+   dh_installchangelogs
+   dh_installman
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+   dh_fixperms
+   dh_missing
+   dh_strip
+   dh_makeshlibs
+   dh_shlibdeps
+   dh_installdeb
+   dh_gencontrol
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package 'libpng-dbgsym' in '../libpng-dbgsym_1.6.37-1_amd64.deb'.
+dpkg-deb: building package 'libpng' in '../libpng_1.6.37-1_amd64.deb'.
+ dpkg-genbuildinfo --build=binary
+ dpkg-genchanges --build=binary >../libpng_1.6.37-1_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+Now running lintian libpng_1.6.37-1_amd64.changes ...
+warning: the authors of lintian do not recommend running it with root privileges!
+E: libpng changes: changed-by-address-is-root-user root <demontanaro@gmail.com>
+W: libpng: package-name-doesnt-match-sonames libpng16-16
+W: libpng: wrong-bug-number-in-closes l3:#nnnn
+W: libpng: new-package-should-close-itp-bug
+E: libpng: changelog-is-dh_make-template
+E: libpng: helper-templates-in-copyright
+W: libpng: copyright-has-url-from-dh_make-boilerplate
+E: libpng: copyright-contains-dh_make-todo-boilerplate
+W: libpng: readme-debian-contains-debmake-template
+E: libpng: description-is-dh_make-template
+E: libpng: maintainer-address-is-root-user root <demontanaro@gmail.com>
+E: libpng: section-is-dh_make-template
+W: libpng: superfluous-clutter-in-homepage <insert the upstream URL, if relevant>
+W: libpng: bad-homepage <insert the upstream URL, if relevant>
+W: libpng: binary-without-manpage usr/bin/libpng-config
+W: libpng: binary-without-manpage usr/bin/libpng16-config
+W: libpng: binary-without-manpage usr/bin/png-fix-itxt
+W: libpng: binary-without-manpage usr/bin/pngfix
+E: libpng: non-empty-dependency_libs-in-la-file usr/lib/x86_64-linux-gnu/libpng16.la
+W: libpng: non-dev-pkg-with-shlib-symlink usr/lib/x86_64-linux-gnu/libpng16.so.16.37.0 usr/lib/x86_64-linux-gnu/libpng16.so
+E: libpng-dbgsym: maintainer-address-is-root-user root <demontanaro@gmail.com>
+Finished running lintian.

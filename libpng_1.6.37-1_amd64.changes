@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Thu, 16 Apr 2020 15:17:26 -0500
+Source: libpng
+Binary: libpng libpng-dbgsym
+Architecture: amd64
+Version: 1.6.37-1
+Distribution: unstable
+Urgency: medium
+Maintainer: root <demontanaro@gmail.com>
+Changed-By: root <demontanaro@gmail.com>
+Description:
+ libpng     - <insert up to 60 chars description>
+Changes:
+ libpng (1.6.37-1) unstable; urgency=medium
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Checksums-Sha1:
+ 2e6c0104bc4a356750bf57c81f4f3458d226738d 324464 libpng-dbgsym_1.6.37-1_amd64.deb
+ 6c80217bbcbf105f281391b8d94355e6ba600964 5329 libpng_1.6.37-1_amd64.buildinfo
+ d5cef2db2162081580b7df3b560a01de4496ca24 367884 libpng_1.6.37-1_amd64.deb
+Checksums-Sha256:
+ e0237c6a7751c4bf2e4eba1c8fe9b9bb4e0de3270052c4f37dfca5c7352bcaf0 324464 libpng-dbgsym_1.6.37-1_amd64.deb
+ 1ea8ddb18ffce3e988416c5c382f82b9e09365a9d4b9ee05df8b39d8d4a7ad8c 5329 libpng_1.6.37-1_amd64.buildinfo
+ 2ef5a37fe80047b3015c5a044f6889e257dc9ea4ce68532c1317413b35373c85 367884 libpng_1.6.37-1_amd64.deb
+Files:
+ c056ce9d0a3176614e4d08c2fcc58360 324464 debug optional libpng-dbgsym_1.6.37-1_amd64.deb
+ d1d519ff811e22d985de9ba69436c2ef 5329 unknown optional libpng_1.6.37-1_amd64.buildinfo
+ 75f35da795626e3fe1f1b037193f11c1 367884 unknown optional libpng_1.6.37-1_amd64.deb

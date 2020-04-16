@@ -1,0 +1,3 @@
+shlibs:Depends=libc6 (>= 2.14), libpng, zlib1g (>= 1:1.2.11.dfsg)
+misc:Depends=
+misc:Pre-Depends=
